@@ -1,4 +1,6 @@
 import subprocess
+import sys
+import os
 from shutil import copyfile
 
 # Choose the ontology (in the OWL format) for which you want to explain the entailed subsumption relations.
@@ -23,6 +25,31 @@ method = "3" #
 signature = "datasets/signature.txt"
 
 tempResultFile = "temp/result_temp"
+
+
+def forget():
+    global forgetOntology
+
+    forget_order = sort_explanation_on_occurrences(forgetOntology)
+    subclass_symbols = file_to_string(inputSubclassStatements)
+    total_axioms = 0
+    copyfile(forgetOntology, tempResultFile)
+
+    print("Start Forget A-Z")
+    for symbol_tuple in forget_order:
+        total_axioms += forget_symbol(symbol_tuple[0], subclass_symbols)
+
+    print("Total amount of axioms: " + str(total_axioms) + "\n")
+
+    copyfile(forgetOntology, tempResultFile)
+
+    total_axioms = 0
+
+    print("Start Forget Z-A")
+    for symbol_tuple in reversed(forget_order):
+        total_axioms += forget_symbol(symbol_tuple[0], subclass_symbols)
+
+    print("Total amount of axioms: " + str(total_axioms) + "\n")
 
 
 def sort_explanation_on_occurrences(explanation_file):
@@ -59,52 +86,44 @@ def file_to_string(subclass_file):
         result += line
     return result
 
+def count_axioms(result_file):
+    file = open(result_file)
+    result = 0
+    for line in file:
+        if "<rdfs:subClassOf" in line:
+            if "Nothing" not in line:
+                result += 1
+    return result
 
-def forget_symbol(symbol):
+
+def forget_symbol(symbol, subclass_symbols):
     global forgetOntology
-    global total_axioms
+
     if symbol in subclass_symbols:
-        return
+        return 0
 
     print("forgetting: " + symbol)
     signature_file = open(signature, "w")
     signature_file.write(symbol)
     signature_file.close()
 
-    lethe_command = 'java -cp lethe-standalone.jar uk.ac.man.cs.lethe.internal.application.ForgettingConsoleApplication --owlFile ' + forgetOntology + ' --method ' + method + ' --signature ' + signature
+    lethe_command = 'java -cp lethe-standalone.jar uk.ac.man.cs.lethe.internal.application.ForgettingConsoleApplication --owlFile ' + tempResultFile + ' --method ' + method + ' --signature ' + signature
     subprocess.Popen(lethe_command, shell=True, stdout=subprocess.DEVNULL).wait()
 
     copyfile('result.owl', tempResultFile)
-    forgetOntology = tempResultFile
 
-    axioms = file_to_string(forgetOntology)
-
-    amount_axioms = axioms.count('<rdfs:subClassOf')
+    amount_axioms = count_axioms(tempResultFile)
 
     print("Amount axioms: " + str(amount_axioms))
-    total_axioms += amount_axioms
-
-#os.system('java -jar kr_functions.jar ' + 'saveAllSubClasses' + " " + inputOntology)
-
-#os.system('java -jar kr_functions.jar ' + 'saveAllExplanations' + " " + inputOntology + " " + inputSubclassStatements)
+    return amount_axioms
 
 
-forget_order = sort_explanation_on_occurrences(forgetOntology)
-subclass_symbols = file_to_string(inputSubclassStatements)
-total_axioms = 0
+if sys.argv[1] == 'F':
+    signature = "forgetting/signature.txt"
+    forgetOntology = "forgetting/justification.omn"
+    inputSubclassStatements = "forgetting/subclass.nt"
+    forget()
+elif sys.argv[1] == 'J':
+    os.system('java -jar kr_functions.jar ' + 'saveAllSubClasses' + " " + inputOntology)
 
-print("Start Forget A-Z")
-for symbol_tuple in forget_order:
-    forget_symbol(symbol_tuple[0])
-
-print("Total amount of axioms: " + str(total_axioms) + "\n")
-
-forgetOntology = "datasets/exp-1.omn"
-
-total_axioms = 0
-
-print("Start Forget Z-A")
-for symbol_tuple in reversed(forget_order):
-    forget_symbol(symbol_tuple[0])
-
-print("Total amount of axioms: " + str(total_axioms) + "\n")
+    os.system('java -jar kr_functions.jar ' + 'saveAllExplanations' + " " + inputOntology + " " + inputSubclassStatements)

@@ -1,8 +1,0 @@
-Ontology(<http://www.example.com/explanation1>
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#AmericanHot> ObjectSomeValuesFrom(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#JalapenoPepperTopping>))
-ObjectPropertyRange(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#PizzaTopping>)
-EquivalentClasses(<http://www.co-ode.org/ontologies/pizza/pizza.owl#SpicyTopping> ObjectIntersectionOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#PizzaTopping> ObjectSomeValuesFrom(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasSpiciness> <http://www.co-ode.org/ontologies/pizza/pizza.owl#Hot>)) )
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#JalapenoPepperTopping> ObjectSomeValuesFrom(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasSpiciness> <http://www.co-ode.org/ontologies/pizza/pizza.owl#Hot>))
-EquivalentClasses(<http://www.co-ode.org/ontologies/pizza/pizza.owl#SpicyPizza> ObjectIntersectionOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#Pizza> ObjectSomeValuesFrom(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#SpicyTopping>)) )
-ObjectPropertyDomain(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#Pizza>)
-)

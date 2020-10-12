@@ -19,17 +19,17 @@
     
 
 
-    <!-- http://www.co-ode.org/ontologies/pizza/pizza.owl#AmericanHot -->
+    <!-- http://www.co-ode.org/ontologies/pizza/pizza.owl#VegetarianPizza -->
 
-    <Class rdf:about="http://www.co-ode.org/ontologies/pizza/pizza.owl#AmericanHot">
-        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/pizza/pizza.owl#SpicyPizza"/>
-    </Class>
+    <Class rdf:about="http://www.co-ode.org/ontologies/pizza/pizza.owl#VegetarianPizza"/>
     
 
 
-    <!-- http://www.co-ode.org/ontologies/pizza/pizza.owl#SpicyPizza -->
+    <!-- http://www.co-ode.org/ontologies/pizza/pizza.owl#Veneziana -->
 
-    <Class rdf:about="http://www.co-ode.org/ontologies/pizza/pizza.owl#SpicyPizza"/>
+    <Class rdf:about="http://www.co-ode.org/ontologies/pizza/pizza.owl#Veneziana">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/pizza/pizza.owl#VegetarianPizza"/>
+    </Class>
 </rdf:RDF>
 
 
