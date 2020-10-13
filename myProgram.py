@@ -40,7 +40,6 @@ def forget():
 
     start_axioms = sum(1 for line in open(forgetOntology)) - 2
     amount_symbols_to_forget = len(forget_order)
-    stdv = calculate_standard_deviation(forget_order)
 
     print("Start Forget A-Z")
     for symbol_tuple in forget_order:
@@ -71,22 +70,7 @@ def forget():
     print("Total amount of axioms: " + str(total_axioms_2) + "\n")
 
     with open(experimentResultFile, "a") as myfile:
-        myfile.write(str(amount_symbols_to_forget) + ", " + str(start_axioms) + ", " + str(stdv) + ", " + str(total_axioms_1) + ", " + str(total_axioms_2) + "\n")
-
-
-def calculate_standard_deviation(tuples):
-    sum = 0
-    for symbol_tuple in tuples:
-        sum += symbol_tuple[1]
-
-    mean = sum / len(tuples)
-
-    variance_sum = 0
-    for symbol_tuple in tuples:
-        variance_sum += (symbol_tuple - mean) ** 2
-    variance = variance_sum / len(tuples)
-
-    return variance ** 0.5
+        myfile.write(str(amount_symbols_to_forget) + ", " + str(start_axioms) + ", " + str(total_axioms_1) + ", " + str(total_axioms_2) + "\n")
 
 
 def sort_explanation_on_occurrences(explanation_file):
@@ -207,7 +191,7 @@ elif sys.argv[1] == 'ALL':
     inputSubclassStatements = "forgetting/subclass.nt"
 
     with open(experimentResultFile, "w") as myfile:
-        myfile.write("symbols_to_forget, start_axioms, stdv, A-Z, Z-A\n")
+        myfile.write("symbols_to_forget, start_axioms, A-Z, Z-A\n")
 
     for file in files:
         print("Calculating justification")
