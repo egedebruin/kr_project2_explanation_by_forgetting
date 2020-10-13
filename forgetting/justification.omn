@@ -1,14 +1,4 @@
-Ontology(<http://www.example.com/explanation7>
-DisjointClasses(<http://www.co-ode.org/ontologies/pizza/pizza.owl#CheeseTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#FishTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#FruitTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#HerbSpiceTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#MeatTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#NutTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#SauceTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#VegetableTopping>)
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#MozzarellaTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#CheeseTopping>)
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#Veneziana> ObjectSomeValuesFrom(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#MozzarellaTopping>))
-EquivalentClasses(<http://www.co-ode.org/ontologies/pizza/pizza.owl#VegetarianPizza> ObjectIntersectionOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#Pizza> ObjectComplementOf(ObjectSomeValuesFrom(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#FishTopping>)) ObjectComplementOf(ObjectSomeValuesFrom(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#MeatTopping>))) )
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#OliveTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#VegetableTopping>)
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#Veneziana> ObjectAllValuesFrom(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping> ObjectUnionOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#CaperTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#MozzarellaTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#OliveTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#OnionTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#PineKernels> <http://www.co-ode.org/ontologies/pizza/pizza.owl#SultanaTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#TomatoTopping>)))
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#SultanaTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#FruitTopping>)
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#PineKernels> <http://www.co-ode.org/ontologies/pizza/pizza.owl#NutTopping>)
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#CaperTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#VegetableTopping>)
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#TomatoTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#VegetableTopping>)
-SubClassOf(<http://www.co-ode.org/ontologies/pizza/pizza.owl#OnionTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#VegetableTopping>)
-ObjectPropertyDomain(<http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping> <http://www.co-ode.org/ontologies/pizza/pizza.owl#Pizza>)
+Ontology(<http://www.example.com/explanation1>
+EquivalentClasses(<http://resource.geosciml.org/classifier/cgi/lithOntology/QAPF2_3_4_5> ObjectIntersectionOf(<http://resource.geosciml.org/classifier/cgi/lithOntology/M_LT90> <http://resource.geosciml.org/classifier/cgi/lithOntology/Q_GT20_LT60>) )
+SubClassOf(<http://resource.geosciml.org/classifier/cgi/lithOntology/QAPF5> <http://resource.geosciml.org/classifier/cgi/lithOntology/QAPF2_3_4_5>)
 )

@@ -1,1 +1,1 @@
-<http://www.co-ode.org/ontologies/pizza/pizza.owl#Veneziana> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.co-ode.org/ontologies/pizza/pizza.owl#VegetarianPizza> .
+<http://resource.geosciml.org/classifier/cgi/lithOntology/QAPF5> <http://www.w3.org/2000/01/rdf-schema#subClassOf>  <http://resource.geosciml.org/classifier/cgi/lithOntology/M_LT90> .

@@ -1,1 +1,1 @@
-http://www.co-ode.org/ontologies/pizza/pizza.owl#HerbSpiceTopping
+http://resource.geosciml.org/classifier/cgi/lithOntology/Q_GT20_LT60
