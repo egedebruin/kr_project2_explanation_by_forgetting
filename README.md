@@ -1,18 +1,7 @@
-# kr_project2_explanation_by_forgetting
+The code is created to experiment the size of an explanation by forgetting and can be run in three ways.
 
-This is a repository for a very simple code-base for the course Knowledge Representation 2020 of the Master AI.
- 
-This repository provides a number of (partial) stand-alone versions of established programs (LETHE or the OWL-API) 
-with the sole goal of allowing you to programme and evaluate a forgetting-based explanation tool for Project 2 of the course. 
-Both those programs are provided as jars. 
+`python myProgram.py J` Creates justifications. Uses the ontology in the inputOntology variable in `myProgram.py`. It searches for the subset statements and creates justifications which can be analysed.
 
-The most important file is myProgram.py, which illustrates four the usages of the kr_functions.jar file for loading and 
-classifying an ontology, and printing and writing the entailed subclass statements to a fail, and the application of
-lethe_standalone for forgetting vocabulary specified in a file signature.txt from an ontology. 
+`python myProgram.py F` Runs the forgetting algorithm and prints how many axioms are in the explanation. It uses the justification in `forgetting/justification.omn` and the subclass statement in `forgetting/subclass.nl`.
 
-You can run myPrograms.py with your Python installation and you need a Java installation (I believe a runtime version is sufficient). 
-
-If you want more functionality from the OWL-API you might want to modify kr_functions.jar. 
-We also provide the java directory that allows you to do this at the following GIT repository 
-https://github.com/raadjoe/kr_forgetting.git 
- believe you need a Java jdk version in that case. 
+`python myProgram.py ALL` Runs the whole experiment with the ontology in the inputOntology variable in `myProgram.py`. It uses all justifications of the ontology and runs the forgetting algorithm on it. The results are printed in results.txt. 
